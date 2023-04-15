@@ -63,7 +63,7 @@ const googleLogin= async (req:Request, res:Response) => {
 
  } catch (error:any) {
         console.log(error.message);
-        res.send({message:"La validacion con google no fue posible intentelo despues",valid:false})
+        res.send({message:error.message})
  }
  
 }
