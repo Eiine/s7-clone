@@ -30,9 +30,9 @@ const googleLogin= async (req:Request, res:Response) => {
     if(!user){
         
         let createUser= new User({email,picture,username, password:":P"})
-        createUser.save()
+        let createUserSave:any=createUser.save()
         
-        const update: any = await User.findOne({ email: createUser.email }).select("-password");
+        const update: any = await User.findOne({ email: createUserSave.email }).select("-password");
         
         let token = generateToken(update, 18000);
     if (!token) {
